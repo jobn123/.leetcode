@@ -17,14 +17,17 @@ var isValid = function(s) {
 
   for (let index = 0; index < s.length; index++) {
     const element = s[index];
-    const last = arr[arr.length - 1];
-
-    if (map[last] === element) {
-      arr.pop();
-    } else {
+    
+    // 左括号 直接入栈
+    if (element in map) {
       arr.push(element);
+    } else {
+      // 右括号, 出栈对比
+      if (map[arr.pop()] !== element) {
+        return false
+      }
     }
-
+    
   }
 
   return arr.length === 0;
