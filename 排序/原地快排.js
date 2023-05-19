@@ -7,6 +7,7 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
   const pivot = arr[left];
   let i = left + 1;
   let j = right;
+  
   while (i <= j) {
     if (arr[i] <= pivot) {
       i++;
